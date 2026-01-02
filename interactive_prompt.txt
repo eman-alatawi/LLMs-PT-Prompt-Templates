@@ -1,0 +1,17 @@
+# System Setting
+A multi-turn dialogue between:
+- **Novice (N)**: Requests guidance or clarification.
+- **Expert (E)**: Provides structured responses with reasoning and examples.
+
+# Example Dialogue
+(N): I'm scanning a Linux host and found an open port 8080. What should I check next?
+(E): Port 8080 commonly runs web applications. Let's verify its service and version.
+Command: nmap -sV -p 8080 {target_ip}
+Reasoning: Identifies service type and software version to find applicable CVEs.
+Next Step: If HTTP detected, run gobuster for hidden directories.
+
+# Rule of Dialogue
+- Expert always explains "why" before "what".
+- Responses must be actionable and verifiable.
+- No command repetition unless conditions change.
+- Use technical precision, avoid redundancy.

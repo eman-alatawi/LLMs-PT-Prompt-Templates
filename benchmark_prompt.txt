@@ -1,0 +1,26 @@
+# Scenario Definition
+Task: {task_description}
+Network: {network_range}
+Objective: Complete the full attack chain and record each reasoning step.
+
+# Format
+{
+  "step_id": <integer>,
+  "summary": "<short_description>",
+  "thought": "<agent_reasoning>",
+  "action": "<command_or_tool>",
+  "observation": "<system_output>",
+  "result": "<success|failure>",
+  "next_task": "<planned_followup>"
+}
+
+# Example Task Record
+{
+  "step_id": 3,
+  "summary": "Privilege escalation via SUID",
+  "thought": "Found /usr/bin/find with SUID bit. Likely exploitable.",
+  "action": "sudo find . -exec /bin/sh \\; -quit",
+  "observation": "Root shell obtained",
+  "result": "success",
+  "next_task": "Locate root flag in /root directory"
+}
